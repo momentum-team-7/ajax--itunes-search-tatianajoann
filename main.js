@@ -37,16 +37,16 @@ function displayResults(song) {
     let songContainer = document.querySelector(".result-container")
     let songEl = document.createElement("div")
     let title = document.createElement("h3")
-    let body = document.createElement("p")
+    let artist = document.createElement("p")
     let picture = document.createElement("img")
     picture.src = song.artworkUrl100
-    body.innerHTML = song.artistName
+    artist.innerHTML = song.artistName
     title.innerHTML = song.trackName
     songEl.className = "song-item"
+    artist.className = "artist"
     songEl.appendChild(picture)
+    songEl.appendChild(artist)
     songEl.appendChild(title)
-    songEl.appendChild(body)
     songContainer.appendChild(songEl)
-    
-
 }
+

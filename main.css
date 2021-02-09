@@ -1,0 +1,62 @@
+body {
+  font-family: "Noto Sans JP";
+  background: #f0f3f3;
+}
+
+input {
+  margin-bottom: 10px;
+}
+
+.result-container {
+  display: flex;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.song-item {
+  text-align: center;
+  flex-grow: 1;
+  margin-right: 20px;
+  margin-bottom: 30px;
+
+  max-width: 100px;
+}
+
+.artist {
+  margin: 0 auto;
+}
+h3 {
+  font-size: 12px;
+  margin: 0 auto;
+  color: #3c1c54;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+input {
+  width: 600px;
+  outline: none;
+  border-radius: 20px;
+  border-color: #d3d3d3;
+  border-style: solid;
+  font-size: 18px;
+  font-family: "Noto Sans JP";
+  padding: 5px;
+}
+
+button {
+  font-family: "Noto Sans JP";
+  font-size: 18px;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: #d3d3d3;
+  width: 90px;
+  outline: none;
+}
+
+button:hover {
+  opacity: 0.4;
+}
