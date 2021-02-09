@@ -18,7 +18,7 @@ searchBtn.addEventListener('click', e => {
 
 function searchRequest() {
     let searchInput = document.querySelector(".user-search").value
-    fetch ('https://proxy-itunes-api.glitch.me/search?term=' + searchInput)
+    fetch ('https://itunes.apple.com//search?term=' + searchInput)
     .then(resp => 
         resp.json()
     )
@@ -27,10 +27,17 @@ function searchRequest() {
         for (let song of data.results) {
             displayResults(song)
         }
+        // artist.value = "";
+        // titlNote.value = "";
     })
 }
 
-
+function clearInputs() {
+    const inputs = document.querySelectorAll('input')
+    for (let field of inputs) {
+      field.value = ''
+    }
+  }
 
 
 function displayResults(song) {
@@ -39,6 +46,8 @@ function displayResults(song) {
     let title = document.createElement("h3")
     let artist = document.createElement("p")
     let picture = document.createElement("img")
+    // let sound = document.createElement("audio")
+    // sound src=
     picture.src = song.artworkUrl100
     artist.innerHTML = song.artistName
     title.innerHTML = song.trackName
@@ -48,5 +57,6 @@ function displayResults(song) {
     songEl.appendChild(artist)
     songEl.appendChild(title)
     songContainer.appendChild(songEl)
+    clearInputs()
 }
 
