@@ -6,15 +6,16 @@ window.addEventListener('click', e => {
 let searchBtn = document.querySelector(".search-button")
 searchBtn.addEventListener('click', e => {
     searchRequest()
+    //clearSongs()
 })
 
 
-// let appleUrl =
-// function searchRequest () {
-//     // a fetch to send the search request ? 
-
-// }
-
+// function clearSongs() {
+//     let songContainer = document.querySelector(".result-container")
+//     for (let song of songContainer) {
+//       song.value = ""
+//     }
+//   }
 
 function searchRequest() {
     let searchInput = document.querySelector(".user-search").value
@@ -27,18 +28,10 @@ function searchRequest() {
         for (let song of data.results) {
             displayResults(song)
         }
-        // artist.value = "";
-        // titlNote.value = "";
+        //  artist.value = "";
+        //  titlNote.value = "";
     })
 }
-
-function clearInputs() {
-    const inputs = document.querySelectorAll('input')
-    for (let field of inputs) {
-      field.value = ''
-    }
-  }
-
 
 function displayResults(song) {
     let songContainer = document.querySelector(".result-container")
@@ -46,17 +39,29 @@ function displayResults(song) {
     let title = document.createElement("h3")
     let artist = document.createElement("p")
     let picture = document.createElement("img")
-    // let sound = document.createElement("audio")
-    // sound src=
+    let sound = document.createElement("source")
+    sound.src = song.previewUrl
     picture.src = song.artworkUrl100
     artist.innerHTML = song.artistName
     title.innerHTML = song.trackName
     songEl.className = "song-item"
     artist.className = "artist"
+    songEl.appendChild(sound)
     songEl.appendChild(picture)
     songEl.appendChild(artist)
     songEl.appendChild(title)
     songContainer.appendChild(songEl)
-    clearInputs()
+    
+
+    songEl.addEventListener('click', e => {
+        playMusic(e.target.parentElement)
+    })
+}
+
+function playMusic(song) {
+    let audio = document.querySelector("audio")
+    console.log(song.firstElementChild)
+    audio.src = song.firstElementChild.src
+
 }
 
