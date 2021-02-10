@@ -5,17 +5,18 @@ window.addEventListener('click', e => {
 
 let searchBtn = document.querySelector(".search-button")
 searchBtn.addEventListener('click', e => {
+    clearSongs()
     searchRequest()
-    //clearSongs()
+    
 })
 
 
-// function clearSongs() {
-//     let songContainer = document.querySelector(".result-container")
-//     for (let song of songContainer) {
-//       song.value = ""
-//     }
-//   }
+function clearSongs() {
+    let songs = document.querySelectorAll(".song-item")
+    for (let song of songs) {
+        song.remove();
+    } 
+  }
 
 function searchRequest() {
     let searchInput = document.querySelector(".user-search").value
