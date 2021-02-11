@@ -19,8 +19,16 @@ input {
   flex-grow: 1;
   margin-right: 20px;
   margin-bottom: 30px;
-
   max-width: 100px;
+  border: #f0f3f3;
+  border-style: solid;
+  padding: 10px;
+}
+.song-item:active {
+  /* border: #dcd8d8;
+  border-style: inset;
+  border-width: 1px; */
+  opacity: 0.3;
 }
 
 .artist {
